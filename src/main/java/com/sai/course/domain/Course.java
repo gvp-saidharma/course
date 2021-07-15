@@ -3,6 +3,9 @@ package com.sai.course.domain;
 import javax.persistence.*;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -26,14 +29,17 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(description = "Details about course")
 public class Course {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @ApiModelProperty(notes = "unique auto increment course id")
     private Integer id;
 
     @NotBlank
     @Size(max = 500)
+    @ApiModelProperty(notes = "unique course name")
     private String courseName;
 
     @NotBlank
